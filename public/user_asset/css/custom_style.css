@@ -1,0 +1,223 @@
+:root {
+    /* --gradient: linear-gradient(90deg, #a685e2, #6155a6); */
+    --primary_gradient: linear-gradient(
+        to right,
+        #00c6ff 0%,
+        #0072ff 51%,
+        #00c6ff 100%
+    );
+    --secondary_gradient: linear-gradient(
+        to right,
+        #fe8c00 0%,
+        #f83600 51%,
+        #fe8c00 100%
+    );
+}
+/* html {
+    font-size: 90% !important;
+} */
+body {
+    background: #f0f2f5;
+}
+
+/* __Colors__ */
+.bg-c-blue {
+    background: linear-gradient(45deg, #4099ff, #73b4ff);
+}
+.bg-c-green {
+    background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+}
+.bg-c-yellow {
+    background: linear-gradient(45deg, #ffb64d, #ffcb80);
+}
+.bg-c-pink {
+    background: linear-gradient(45deg, #ff5370, #ff869a);
+}
+
+.bg-login {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(0, 0, 0, 0.7) 51%,
+            rgba(0, 0, 0, 0.8) 100%
+        ),
+        url(../../images/asset_img/olu-famule-Dv2PNbMWtsE-unsplash.jpg);
+    /* background: #f0f2f5; */
+    background-size: cover;
+}
+
+.sb-sidenav-menu .sb-nav-link-icon {
+    width: 20px;
+}
+
+html::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+html::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+html::-webkit-scrollbar-thumb {
+    background: #d2d2d2;
+    border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 5px;
+}
+.scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.scroll::-webkit-scrollbar-thumb {
+    background: #d2d2d2;
+    border-radius: 10px;
+}
+
+.fixedbutton {
+    position: fixed;
+    bottom: 4%;
+    right: 4%;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0px 0px 10px #bcc0c4;
+    padding-top: 15px;
+}
+
+.btn-grad-primary {
+    background-image: var(--primary_gradient);
+    margin: 5px 0;
+    padding: 7px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+.btn-grad-primary:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-grad-secondary {
+    background-image: var(--secondary_gradient);
+    margin: 5px;
+    padding: 7px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    outline: none;
+    text-decoration: none;
+}
+.btn-grad-secondary:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+.btn {
+    text-transform: none;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.l-icon .fas {
+    font-size: 40px;
+    padding: 20px 0;
+}
+
+/* .card {
+    border-radius: 10px;
+}
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+} */
+
+.bg-grad-primary {
+    background: var(--primary_gradient);
+}
+.bg-grad-secondary {
+    background: var(--secondary_gradient);
+}
+
+.p-f {
+    padding: 0.2rem;
+}
+
+/* __Navbar Style__ */
+.nav-gradient {
+    background: linear-gradient(to right, #0071f3, #73b4ff);
+}
+.navbar .nav-item .active {
+    /* border-bottom: 0.15rem solid #262626; */
+    border-bottom: 0.15rem solid #0071f3;
+    /* border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem; */
+}
+.navbar .nav-item .active span i {
+    color: #0071f3;
+}
+.nav-link {
+    padding-top: 1rem;
+    padding-bottom: 0.85rem;
+}
+/* .nav-link i {
+    color: #262626;
+} */
+
+/* __Homepage Style__ */
+.post_btn {
+    background: #f0f2f5;
+    height: 50px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.scroll {
+    max-height: calc(100vh - 3rem);
+    overflow-y: scroll;
+}
+
+.post_img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.profile_bg {
+    background: url(../../images/asset_img/profile_bg.jpg);
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.profile_bg img {
+    box-shadow: 0 0 20px #fff;
+}
+
+.forgetPassBtn:hover {
+    background: none;
+}
+
+.examTable th {
+    white-space: nowrap;
+}
+
+.dataTableBtn {
+    border: 1.5px solid #6c757d !important;
+    color: #6c757d;
+    padding: 2px 10px !important;
+    font-size: 14px !important;
+}

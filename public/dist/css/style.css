@@ -1,0 +1,130 @@
+/* id card design started */
+.print_container {
+    min-height: 100vh;
+    background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.9)
+        ),
+        url(../../images/asset_img/olu-famule-Dv2PNbMWtsE-unsplash.jpg);
+    background-size: cover;
+}
+.id-shape {
+    height: 4.9632in;
+    width: 3.125in;
+    border-radius: 10px;
+    background: url(../../images/asset_img/adc_id_card_students-01.png);
+    background-size: cover;
+    background-color: #fff;
+    padding-top: 1.729in;
+}
+.teachers_id_card {
+    background: url(../../images/asset_img/adc_id_card_teachers-01.png);
+    background-size: cover;
+}
+.head {
+    height: 25%;
+}
+.photo img {
+    height: 1.15in;
+    width: 1.15in;
+    border-radius: 50%;
+}
+.info {
+    margin-top: 25px;
+}
+.info table tr th,
+.info table tr td {
+    font-size: 14px;
+    padding: 1px 5px;
+}
+
+/* transcript design started */
+.testimonial {
+    height: 8.27in;
+    width: 11.69in;
+    background: url(../../images/asset_img/adc_transcript-01.png);
+    background-size: cover;
+    background-color: #fff;
+    padding-top: 2.8in;
+    padding-left: 1in;
+    padding-right: 1in;
+}
+.tml_desc {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 20px;
+    text-align: justify;
+    color: navy;
+}
+.tml_bottom {
+    margin-top: 80px;
+}
+.testimonial .title span {
+    background: #f7931e;
+    padding: 8px 30px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+/* modal */
+fieldset {
+    display: none;
+}
+fieldset.show {
+    display: block;
+}
+select:focus,
+input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #2196f3 !important;
+    outline-width: 0 !important;
+    font-weight: 400;
+}
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0;
+}
+.tabs {
+    margin: 2px 5px 0px 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+.tabs:hover,
+.tabs.active {
+    border-bottom: 2px solid #2196f3;
+}
+a:hover {
+    text-decoration: none;
+    color: #1565c0;
+}
+.box {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+.line {
+    background-color: #cfd8dc;
+    height: 1px;
+    width: 100%;
+}
+@media screen and (max-width: 768px) {
+    .tabs h6 {
+        font-size: 12px;
+    }
+}
+
+.nav-item .nav-treeview .active {
+    background: #e5e5e5;
+    color: #007bff;
+}
+
+.examTable th {
+    white-space: nowrap;
+}
