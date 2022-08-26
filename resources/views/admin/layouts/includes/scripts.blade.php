@@ -45,8 +45,18 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Sweetalert js -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- Summernote -->
-<script src="{{ asset('plugins') }}/summernote/summernote-bs4.min.js"></script>
+
+<!-- include summernote js -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+<!-- Summernote script -->
+<script>
+    $('.summernote').summernote({
+        placeholder: 'Enter text here...',
+        tabsize: 4,
+        height: 200
+    })
+</script>
 
 <!-- Google charts -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -157,23 +167,6 @@
         });
     });
 </script>
-<script>
-    $(function() {
-        // Summernote
-        $('.summernote').summernote({
-            placeholder: 'Enter text here...',
-            tabsize: 4,
-            height: 200
-        })
-
-        // CodeMirror
-        CodeMirror.fromTextArea(document.getElementById("codeMirrorDemo"), {
-            mode: "htmlmixed",
-            theme: "monokai"
-        });
-    })
-</script>
-
 
 <script>
     $(document).ready(function() {
