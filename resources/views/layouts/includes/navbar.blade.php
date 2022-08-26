@@ -1,3 +1,10 @@
+@php
+$notifications = DB::table('notifications')
+    ->where('post_user_id', Auth::user()->id)
+    ->orderby('id', 'desc')
+    ->get();
+@endphp
+
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light py-0">
 
     <div class="container-fluid justify-content-between row-lg">
@@ -85,27 +92,11 @@
             <li class="nav-item me-3" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Notifications">
                 <a class="nav-link" data-bs-toggle="modal" data-bs-target="#notifications">
                     <span><i class="fas fa-bell fa-lg"></i></span>
+                    <span
+                        class="badge rounded-pill badge-notification bg-danger">{{ $notifications->where('status', 'unread')->count() }}</span>
                 </a>
             </li>
 
-
-            {{-- <li class="nav-item dropdown me-3">
-                <a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
-                    role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-bell fa-lg"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                    <li>
-                        <a class="dropdown-item" href="#">Some news</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Another news</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </li>
-                </ul>
-            </li> --}}
             <li class="nav-item dropdown me-3">
                 <a class="nav-link dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
                     role="button" data-mdb-toggle="dropdown" aria-expanded="false">
@@ -196,12 +187,6 @@
 </div>
 
 
-@php
-$notifications = DB::table('notifications')
-    ->where('post_user_id', Auth::user()->id)
-    ->orderby('id', 'desc')
-    ->get();
-@endphp
 
 <!-- Modal -->
 <div class="modal fade" id="notifications" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
