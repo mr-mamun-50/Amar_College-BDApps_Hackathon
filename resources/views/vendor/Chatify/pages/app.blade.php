@@ -7,7 +7,7 @@
             <nav>
                 <div style="display:inline-flex">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('images/logos/icon.png') }}" alt="MyADC"
+                        <img src="{{ asset('images/logos/icon.png') }}" alt="Amar College"
                             style="width: 35px; height:35px; box-shadow:0 0 10px #ccc; border-radius: 10px">
                     </a>
                     <span class="messenger-headTitle" style="margin: 7px 10px; color: #606679">MESSAGES</span>

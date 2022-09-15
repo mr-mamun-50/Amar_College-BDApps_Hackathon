@@ -45,6 +45,13 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a href="" class="nav-link" data-toggle="modal" data-target="#premiumModal">
+                        <i class="nav-icon fas fa-fist-raised"></i>
+                        <p> Attendance <i class="far fa-gem right text-warning"></i></p>
+                    </a>
+                </li>
+
                 <li class="nav-item @if ($menu == 'Routine') menu-open @endif">
                     <a href="#" class="nav-link @if ($menu == 'Routine') active @endif">
                         <i class="nav-icon fas fa-calendar-alt"></i>

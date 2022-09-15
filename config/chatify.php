@@ -6,7 +6,7 @@ return [
     | Messenger display name
     |-------------------------------------
     */
-    'name' => env('CHATIFY_NAME', 'Messenger | MyADC'),
+    'name' => env('CHATIFY_NAME', 'Messenger | Amar College'),
 
     /*
     |-------------------------------------

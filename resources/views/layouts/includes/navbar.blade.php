@@ -92,8 +92,10 @@ $notifications = DB::table('notifications')
             <li class="nav-item me-3" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Notifications">
                 <a class="nav-link" data-bs-toggle="modal" data-bs-target="#notifications">
                     <span><i class="fas fa-bell fa-lg"></i></span>
-                    <span
-                        class="badge rounded-pill badge-notification bg-danger">{{ $notifications->where('status', 'unread')->count() }}</span>
+                    @if ($notifications->where('status', 'unread')->count())
+                        <span
+                            class="badge rounded-pill badge-notification bg-danger">{{ $notifications->where('status', 'unread')->count() }}</span>
+                    @endif
                 </a>
             </li>
 
