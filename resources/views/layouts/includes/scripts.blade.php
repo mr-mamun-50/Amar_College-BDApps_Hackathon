@@ -169,3 +169,59 @@
         // alert("Copied: " + copyText.value);
     }
 </script>
+
+
+<script type="text/javascript">
+    $("#storeLike").on("submit", function(e) {
+        e.preventDefault();
+
+        var form = $(this);
+        var url = form.attr('action');
+        var method = form.attr('method');
+        var data = form.serialize();
+
+        $.ajax({
+            url: url,
+            method: method,
+            data: data,
+            success: function(response) {
+                console.log('like');
+                // if (response.status == 'success') {
+                //     $('#like').html(response.like);
+                //     $('#dislike').html(response.dislike);
+                //     $('#likeBtn').html(response.likeBtn);
+                //     $('#dislikeBtn').html(response.dislikeBtn);
+                // }
+                // $("#lcs").load(location.href + " #lcs");
+                $("#posts").load(location.href + " #posts");
+            }
+        });
+
+    });
+
+    $("#destroyLike").on("submit", function(e) {
+        e.preventDefault();
+
+        var form = $(this);
+        var url = form.attr('action');
+        var method = form.attr('method');
+        var data = form.serialize();
+
+        $.ajax({
+            url: url,
+            method: method,
+            data: data,
+            success: function(response) {
+                console.log('destryed');
+                // if (response.status == 'success') {
+                //     $('#like').html(response.like);
+                //     $('#dislike').html(response.dislike);
+                //     $('#likeBtn').html(response.likeBtn);
+                //     $('#dislikeBtn').html(response.dislikeBtn);
+                // }
+                $("#posts").load(location.href + " #posts");
+            }
+        });
+
+    });
+</script>

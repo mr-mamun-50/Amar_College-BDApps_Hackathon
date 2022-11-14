@@ -19,7 +19,7 @@
 
         {{-- Center section started --}}
         <div class="pt-4 col-lg-6 col-md-8 py-md-4 scroll justify-content-center d-flex">
-            <div class="pb-4 col-lg-11">
+            <div class="pb-4 col-lg-11" id="posts">
                 {{-- whats on your mind --}}
                 <div class="card text-start">
                     <div class="p-3 card-body">
@@ -273,21 +273,22 @@
                             <div class="w-100">
                                 @if ($liker_user != null)
                                     @if (Auth::user()->id == $liker_user->user_id)
-                                        <form action="{{ route('like.destroy', $liker_user->id) }}" method="post">
+                                        <form action="{{ route('like.destroy', $liker_user->id) }}" method="post"
+                                            id="destroyLike">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" class="px-0 btn btn-link w-100 text-dark">
                                                 <i class="fas fa-thumbs-up text-primary"></i>
-                                                {{ '(' . $like->count() . ')' }}</button>
+                                                {{ $like->count() }}</button>
                                         </form>
                                     @endif
                                 @else
-                                    <form action="{{ route('like.store') }}" method="post">
+                                    <form action="{{ route('like.store') }}" method="post" id="storeLike">
                                         @csrf
                                         <input type="hidden" value="{{ $item->id }}" name="post_id">
                                         <button type="submit" class="px-0 btn btn-link w-100 text-dark"><i
                                                 class="far fa-thumbs-up"></i>
-                                            {{ '(' . $like->count() . ')' }}
+                                            {{ $like->count() }}
                                         </button>
                                     </form>
                                 @endif
@@ -297,7 +298,7 @@
                             <div class="vr"></div>
                             <a class="px-0 btn btn-link w-100 text-dark" data-bs-toggle="modal"
                                 data-bs-target="{{ '#postCmnt' . $item->id }}"><i class="fa-regular fa-comment"></i>
-                                {{ '(' . $comments->count() . ')' }}</a>
+                                {{ $comments->count() }}</a>
 
                             <!-- Modal for comment view -->
                             <div class="modal fade" id="{{ 'postCmnt' . $item->id }}" tabindex="-1"
@@ -472,6 +473,4 @@
         {{-- Right section ended --}}
 
     </div>
-
-    <script type="text/javascript"></script>
 @endsection

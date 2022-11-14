@@ -57,6 +57,10 @@ class LikesController extends Controller
 
         DB::table('post_likes')->insert($data);
         return redirect(url()->previous() . '#post' . $request->post_id);
+
+        // return response()->json([
+        //     'success' => 'You have liked this post'
+        // ], 200);
     }
 
     /**
@@ -107,5 +111,9 @@ class LikesController extends Controller
         DB::table('post_likes')->where('id', $id)->delete();
 
         return redirect(url()->previous() . '#post' . $post->id);
+
+        // return response()->json([
+        //     'success' => 'You have unliked this post'
+        // ], 200);
     }
 }
