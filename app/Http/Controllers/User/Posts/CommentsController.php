@@ -4,8 +4,8 @@ namespace App\Http\Controllers\User\Posts;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use DB;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CommentsController extends Controller
 {
@@ -44,7 +44,7 @@ class CommentsController extends Controller
             'post_id' => $request->post_id,
             'user_id' => Auth::user()->id,
             'comment' => $request->comment,
-            'c_date' => now('6.0').date(''),
+            'c_date' => now('6.0') . date(''),
         ];
 
         $notifications = [
@@ -53,15 +53,15 @@ class CommentsController extends Controller
             'user_id' => Auth::user()->id,
             'type' => 'comment',
             'status' => 'unread',
-            'act_time' => now('6.0').date(''),
+            'act_time' => now('6.0') . date(''),
         ];
 
         DB::table('notifications')->insert($notifications);
 
         DB::table('post_comments')->insert($data);
 
-        $notify = ['message'=>'Commented', 'alert-type'=>'success'];
-        return redirect(url()->previous().'#post'.$request->post_id)->with($notify);
+        $notify = ['message' => 'Commented', 'alert-type' => 'success'];
+        return redirect(url()->previous() . '#post' . $request->post_id)->with($notify);
     }
 
     /**
@@ -111,7 +111,7 @@ class CommentsController extends Controller
 
         DB::table('post_comments')->where('id', $id)->delete();
 
-        $notify = ['message'=>'Comment deteted', 'alert-type'=>'success'];
-        return redirect(url()->previous().'#post'.$post->id)->with($notify);
+        $notify = ['message' => 'Comment deteted', 'alert-type' => 'success'];
+        return redirect(url()->previous() . '#post' . $post->id)->with($notify);
     }
 }

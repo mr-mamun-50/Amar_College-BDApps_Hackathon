@@ -3,8 +3,8 @@
     Home |
 @endsection
 @php
-$menu = 'Home';
-$rightbarImage = 'study_chat.png';
+    $menu = 'Home';
+    $rightbarImage = 'study_chat.png';
 @endphp
 
 
@@ -18,11 +18,11 @@ $rightbarImage = 'study_chat.png';
 
 
         {{-- Center section started --}}
-        <div class="col-lg-6 col-md-8 py-md-4 pt-4 scroll justify-content-center d-flex">
-            <div class="col-lg-11 pb-4">
+        <div class="pt-4 col-lg-6 col-md-8 py-md-4 scroll justify-content-center d-flex">
+            <div class="pb-4 col-lg-11">
                 {{-- whats on your mind --}}
                 <div class="card text-start">
-                    <div class="card-body p-3">
+                    <div class="p-3 card-body">
 
                         <div class="d-flex">
                             <img src="@if (Auth::user()->user_image) {{ asset('images/users') . '/' . Auth::user()->user_image }} @else {{ asset('images/asset_img/user-icon.png') }} @endif"
@@ -34,10 +34,10 @@ $rightbarImage = 'study_chat.png';
                         <hr>
                         <div class="d-flex justify-content-around">
                             <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                class="btn btn-link text-dark w-50 shadow-0 py-1"><i class="fas fa-image text-success"></i>
+                                class="py-1 btn btn-link text-dark w-50 shadow-0"><i class="fas fa-image text-success"></i>
                                 Photo</a>
                             <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                class="btn btn-link text-dark w-50 shadow-0 py-1"><i class="fas fa-video text-danger"></i>
+                                class="py-1 btn btn-link text-dark w-50 shadow-0"><i class="fas fa-video text-danger"></i>
                                 Video</a>
                         </div>
                     </div>
@@ -46,7 +46,7 @@ $rightbarImage = 'study_chat.png';
                 <!-- Create post Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="staticBackdropLabel"><i class="fas fa-plus-circle"></i> Create
@@ -60,7 +60,7 @@ $rightbarImage = 'study_chat.png';
 
                                 <div class="modal-body">
                                     <!-- Message input -->
-                                    <div class="form-outline mb-4">
+                                    <div class="mb-4 form-outline">
                                         <textarea class="form-control" id="form4Example3" rows="4" name="post_text"></textarea>
                                         <label class="form-label" for="form4Example3">Whats on your mind,
                                             {{ Auth::user()->name }}?</label>
@@ -69,13 +69,13 @@ $rightbarImage = 'study_chat.png';
                                         <span class="input-group-text"><i class="bi bi-image text-success"></i></span>
                                         <input type="file" class="form-control" name="image" id="image" />
                                     </div>
-                                    <div class="text-center my-2">or,</div>
+                                    <div class="my-2 text-center">or,</div>
                                     <div class="input-group ">
                                         <span class="input-group-text"><i class="fas fa-video text-danger"></i></span>
                                         <input type="file" class="form-control" name="video" id="video" />
                                     </div>
 
-                                    <select class="form-select form-select-sm mt-3 w-25" name="visibility">
+                                    <select class="mt-3 form-select form-select-sm w-25" name="visibility">
                                         <option value="1">&#127758; Public</option>
                                         <option value="0">&#128274; Only me</option>
                                     </select>
@@ -108,8 +108,8 @@ $rightbarImage = 'study_chat.png';
                             ->get();
                     @endphp
 
-                    <div class="card my-4" id="{{ 'post' . $item->id }}">
-                        <div class="card-header d-flex mt-1">
+                    <div class="my-4 card" id="{{ 'post' . $item->id }}">
+                        <div class="mt-1 card-header d-flex">
 
                             {{-- heading options --}}
                             <div class="d-flex align-items-center">
@@ -130,7 +130,7 @@ $rightbarImage = 'study_chat.png';
                                     @else
                                         <span class="badge rounded-pill badge-warning">&#128274; Only me</span>
                                     @endif
-                                    <small class="card-subtitle mb-2 text-muted">
+                                    <small class="mb-2 card-subtitle text-muted">
                                         {{ date('d F, Y | h:i A', strtotime($item->post_date)) }}
                                     </small>
                                 </div>
@@ -139,7 +139,7 @@ $rightbarImage = 'study_chat.png';
                             {{-- More option: edit, delete --}}
                             @if (Auth::user()->id == $item->user_id)
                                 <div class="dropdown dropstart ms-auto">
-                                    <button class="btn shadow-0 p-2" type="button" id="dropdownMenuButton"
+                                    <button class="p-2 btn shadow-0" type="button" id="dropdownMenuButton"
                                         data-mdb-toggle="dropdown" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v fa-lg"></i>
                                     </button>
@@ -152,12 +152,12 @@ $rightbarImage = 'study_chat.png';
                                                 Edit</a></li>
 
                                         <li>
-                                            <a class="dropdown-item p-0">
+                                            <a class="p-0 dropdown-item">
                                                 <form action="{{ route('posts.destroy', $item->id) }}" method="post">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <button type="submit"
-                                                        class="delete btn bg-transparent shadow-0 px-3 py-2"
+                                                        class="px-3 py-2 bg-transparent delete btn shadow-0"
                                                         style="font-size: 14px"><i
                                                             class="fas fa-trash-alt text-danger"></i>
                                                         Detete</button>
@@ -173,7 +173,7 @@ $rightbarImage = 'study_chat.png';
                                     data-bs-keyboard="false" tabindex="-1"
                                     aria-labelledby="{{ 'EditPostModal' . $item->id . 'Label' }}" aria-hidden="true">
 
-                                    <div class="modal-dialog  modal-dialog-centered">
+                                    <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
 
                                             <div class="modal-header">
@@ -191,7 +191,7 @@ $rightbarImage = 'study_chat.png';
 
                                                 <div class="modal-body">
                                                     <!-- Message input -->
-                                                    <div class="form-outline mb-4">
+                                                    <div class="mb-4 form-outline">
                                                         <textarea class="form-control" id="form4Example3" rows="4" name="post_text">{{ $item->post_text }}</textarea>
                                                         <label class="form-label" for="form4Example3">Whats on your
                                                             mind,
@@ -205,7 +205,7 @@ $rightbarImage = 'study_chat.png';
                                                         <input type="hidden" name="old_image"
                                                             value="{{ $item->image }}">
                                                     </div>
-                                                    <div class="text-center my-2">or,</div>
+                                                    <div class="my-2 text-center">or,</div>
                                                     <div class="input-group ">
                                                         <span class="input-group-text"><i
                                                                 class="fas fa-video text-danger"></i></span>
@@ -215,7 +215,7 @@ $rightbarImage = 'study_chat.png';
                                                             value="{{ $item->video }}">
                                                     </div>
 
-                                                    <select class="form-select form-select-sm mt-3 w-25"
+                                                    <select class="mt-3 form-select form-select-sm w-25"
                                                         name="visibility">
                                                         <option @if ($item->visibility == 1) selected @endif
                                                             value="1">&#127758; Public</option>
@@ -236,7 +236,7 @@ $rightbarImage = 'study_chat.png';
                             @endif
                         </div>
 
-                        <div class="card-body py-3">
+                        <div class="py-3 card-body">
                             <p class="card-text">{{ $item->post_text }}</p>
                         </div>
                         @if ($item->image)
@@ -248,7 +248,7 @@ $rightbarImage = 'study_chat.png';
                             <!-- Modal for image view -->
                             <div class="modal fade" id="{{ 'postImg' . $item->id }}" tabindex="-1"
                                 aria-labelledby="{{ 'postImg' . $item->id . 'Label' }}" aria-hidden="true">
-                                <div class="modal-dialog  modal-dialog-centered modal-lg">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -268,7 +268,7 @@ $rightbarImage = 'study_chat.png';
                         @endif
 
                         {{-- like, comment, share section --}}
-                        <div class="card-footer d-flex justify-content-around p-1">
+                        <div class="p-1 card-footer d-flex justify-content-around">
                             {{-- Like --}}
                             <div class="w-100">
                                 @if ($liker_user != null)
@@ -276,7 +276,7 @@ $rightbarImage = 'study_chat.png';
                                         <form action="{{ route('like.destroy', $liker_user->id) }}" method="post">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <button type="submit" class="btn btn-link w-100 text-dark px-0">
+                                            <button type="submit" class="px-0 btn btn-link w-100 text-dark">
                                                 <i class="fas fa-thumbs-up text-primary"></i>
                                                 {{ '(' . $like->count() . ')' }}</button>
                                         </form>
@@ -285,7 +285,7 @@ $rightbarImage = 'study_chat.png';
                                     <form action="{{ route('like.store') }}" method="post">
                                         @csrf
                                         <input type="hidden" value="{{ $item->id }}" name="post_id">
-                                        <button type="submit" class="btn btn-link w-100 text-dark px-0"><i
+                                        <button type="submit" class="px-0 btn btn-link w-100 text-dark"><i
                                                 class="far fa-thumbs-up"></i>
                                             {{ '(' . $like->count() . ')' }}
                                         </button>
@@ -295,7 +295,7 @@ $rightbarImage = 'study_chat.png';
 
                             {{-- Comment --}}
                             <div class="vr"></div>
-                            <a class="btn btn-link w-100 text-dark px-0" data-bs-toggle="modal"
+                            <a class="px-0 btn btn-link w-100 text-dark" data-bs-toggle="modal"
                                 data-bs-target="{{ '#postCmnt' . $item->id }}"><i class="fa-regular fa-comment"></i>
                                 {{ '(' . $comments->count() . ')' }}</a>
 
@@ -303,7 +303,7 @@ $rightbarImage = 'study_chat.png';
                             <div class="modal fade" id="{{ 'postCmnt' . $item->id }}" tabindex="-1"
                                 aria-labelledby="{{ 'postCmnt' . $item->id . 'Label' }}" aria-hidden="true"
                                 data-bs-backdrop="static" data-bs-keyboard="false">
-                                <div class="modal-dialog  modal-dialog-centered modal-lg">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="staticBackdropLabel">Comments</h5>
@@ -311,7 +311,7 @@ $rightbarImage = 'study_chat.png';
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <table class="myDataTable table table- table-sm" style="width:100%">
+                                            <table class="table myDataTable table- table-sm" style="width:100%">
                                                 <thead>
                                                     <tr>
                                                         <td></td>
@@ -328,7 +328,7 @@ $rightbarImage = 'study_chat.png';
                                                                             style="width: 40px; height:40px">
                                                                     </a>
                                                                     <div class="ms-3">
-                                                                        <div class="d-flex mt-3">
+                                                                        <div class="mt-3 d-flex">
                                                                             <a
                                                                                 href="{{ route('user.profile', $cmnt->user_id) }}">
                                                                                 <h6 class="">{{ $cmnt->name }}
@@ -350,7 +350,7 @@ $rightbarImage = 'study_chat.png';
                                                                                 <input type="hidden" name="_method"
                                                                                     value="DELETE">
                                                                                 <button type="submit"
-                                                                                    class="delete btn btn-link text-danger p-0"><i
+                                                                                    class="p-0 delete btn btn-link text-danger"><i
                                                                                         class="fas fa-trash-alt"></i></button>
                                                                             </form>
                                                                         </div>
@@ -363,7 +363,7 @@ $rightbarImage = 'study_chat.png';
                                             </table>
 
                                             {{-- post comment form --}}
-                                            <div class="card-footer d-flex p-2 pt-3 px-4">
+                                            <div class="p-2 px-4 pt-3 card-footer d-flex">
                                                 <img src="@if (Auth::user()->user_image) {{ asset('images/users') . '/' . Auth::user()->user_image }} @else {{ asset('images/asset_img/user-icon.png') }} @endif"
                                                     alt="" class="rounded-circle"
                                                     style="width: 40px; height: 40px">
@@ -383,7 +383,7 @@ $rightbarImage = 'study_chat.png';
                                                                 </span>
                                                             @enderror
 
-                                                            <button type="submit" class="btn btn-link ms- p-2"><i
+                                                            <button type="submit" class="p-2 btn btn-link ms-"><i
                                                                     class="fas fa-paper-plane fa-lg"></i></button>
                                                         </div>
                                                     </form>
@@ -397,14 +397,14 @@ $rightbarImage = 'study_chat.png';
 
                             {{-- Share --}}
                             <div class="vr"></div>
-                            <a href="" class="btn btn-link w-100 text-dark px-0" data-bs-toggle="modal"
+                            <a href="" class="px-0 btn btn-link w-100 text-dark" data-bs-toggle="modal"
                                 data-bs-target="{{ '#postLink' . $item->id }}"><i class="far fa-share-square"></i></a>
 
                             <!-- Modal for copy link -->
                             <div class="modal fade" id="{{ 'postLink' . $item->id }}" tabindex="-1"
                                 aria-labelledby="{{ 'postLink' . $item->id . 'Label' }}" aria-hidden="true"
                                 data-bs-backdrop="static" data-bs-keyboard="false">
-                                <div class="modal-dialog  modal-dialog-centered modal-">
+                                <div class="modal-dialog modal-dialog-centered modal-">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h6 class="modal-title" id="staticBackdropLabel">Copy Link Address</h6>
@@ -413,7 +413,7 @@ $rightbarImage = 'study_chat.png';
                                         </div>
                                         <div class="modal-body">
 
-                                            <div class="input-group input-group-lg mt-3 mb-5">
+                                            <div class="mt-3 mb-5 input-group input-group-lg">
                                                 <input type="text" class="form-control copyTxt"
                                                     value="{{ route('home') . '#post' . $item->id }}" />
                                                 <button onclick="cpyTxt()" class="btn btn-primary">
@@ -428,7 +428,7 @@ $rightbarImage = 'study_chat.png';
 
 
                         {{-- post comment form --}}
-                        <div class="card-footer d-flex p-2 px-4">
+                        <div class="p-2 px-4 card-footer d-flex">
                             <img src="@if (Auth::user()->user_image) {{ asset('images/users') . '/' . Auth::user()->user_image }} @else {{ asset('images/asset_img/user-icon.png') }} @endif"
                                 alt="" class="rounded-circle" style="width: 40px; height: 40px">
                             <div class="ms-3 w-100">
@@ -446,7 +446,7 @@ $rightbarImage = 'study_chat.png';
                                             </span>
                                         @enderror
 
-                                        <button type="submit" class="btn btn-link ms- p-2"><i
+                                        <button type="submit" class="p-2 btn btn-link ms-"><i
                                                 class="fas fa-paper-plane fa-lg"></i></button>
                                     </div>
                                 </form>
@@ -464,7 +464,7 @@ $rightbarImage = 'study_chat.png';
 
 
         {{-- Right section starts --}}
-        <div class="col-lg-3 col-md-4 py-md-4 pt-4 scroll">
+        <div class="pt-4 col-lg-3 col-md-4 py-md-4 scroll">
 
             @include('layouts.includes.rightbar')
 
@@ -472,4 +472,6 @@ $rightbarImage = 'study_chat.png';
         {{-- Right section ended --}}
 
     </div>
+
+    <script type="text/javascript"></script>
 @endsection
