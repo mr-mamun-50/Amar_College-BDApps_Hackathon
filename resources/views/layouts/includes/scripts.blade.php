@@ -192,7 +192,8 @@
                 //     $('#likeBtn').html(response.likeBtn);
                 //     $('#dislikeBtn').html(response.dislikeBtn);
                 // }
-                // $("#lcs").load(location.href + " #lcs");
+                // $("#storeLike").load(location.href + " #storeLike");
+                // $("#queries").load(location.href + " #queries");
                 $("#posts").load(location.href + " #posts");
             }
         });
@@ -219,6 +220,8 @@
                 //     $('#likeBtn').html(response.likeBtn);
                 //     $('#dislikeBtn').html(response.dislikeBtn);
                 // }
+                // $("#destroyLike").load(location.href + " #destroyLike");
+                // $("#queries").load(location.href + " #queries");
                 $("#posts").load(location.href + " #posts");
             }
         });

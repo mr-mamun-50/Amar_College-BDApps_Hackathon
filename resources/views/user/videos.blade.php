@@ -3,8 +3,8 @@
     Videos |
 @endsection
 @php
-$menu = 'videos';
-$rightbarImage = 'st_stressed.png';
+    $menu = 'videos';
+    $rightbarImage = 'st_stressed.png';
 @endphp
 
 @section('content')
@@ -19,7 +19,7 @@ $rightbarImage = 'st_stressed.png';
 
         {{-- Center section started --}}
         <div class="col-lg-6 col-md-8 pt-4 py-md-4 scroll justify-content-center d-flex">
-            <div class="col-lg-11">
+            <div class="col-lg-11" id="posts">
 
                 @foreach ($videos as $item)
                     @php
@@ -68,7 +68,7 @@ $rightbarImage = 'st_stressed.png';
                                             @if ($liker_user != null)
                                                 @if (Auth::user()->id == $liker_user->user_id)
                                                     <form action="{{ route('like.destroy', $liker_user->id) }}"
-                                                        method="post">
+                                                        method="post" id="destroyLike">
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-link text-dark p-1">
@@ -77,7 +77,7 @@ $rightbarImage = 'st_stressed.png';
                                                     </form>
                                                 @endif
                                             @else
-                                                <form action="{{ route('like.store') }}" method="post">
+                                                <form action="{{ route('like.store') }}" method="post" id="storeLike">
                                                     @csrf
                                                     <input type="hidden" value="{{ $item->id }}" name="post_id">
                                                     <button type="submit" class="btn btn-link text-dark p-1"><i

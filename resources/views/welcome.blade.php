@@ -61,7 +61,7 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
 
-                                <div class="mb-4">
+                                {{-- <div class="mb-4">
                                     <label for="exampleInputEmail1" class="form-label">Select your college</label>
                                     <select name="college" class="form-control py-2" id="">
                                         <option disabled selected>Choose</option>
@@ -74,7 +74,7 @@
                                         </option>
                                         <option value="Al-Emdad Degree College">Al-Emdad Degree College</option>
                                     </select>
-                                </div>
+                                </div> --}}
 
                                 <div class="mb-4">
                                     <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -107,8 +107,8 @@
                                 <div class="d-flex justify-content-between pt-3">
 
                                     <button type="button" class="btn btn-link px-0 forgetPassBtn"
-                                        onclick="location.href='{{ route('password.request') }}'" @auth disabled
-                                        @endauth>Forgot your password?</button>
+                                        onclick="location.href='{{ route('password.request') }}'"
+                                        @auth disabled @endauth>Forgot your password?</button>
 
                                     <button type="submit" class="btn btn-primary " @auth disabled @endauth>
                                         <div class="d-flex">Login <i class="fas fa-sign-in-alt mt-1 ms-1"></i></div>
@@ -130,8 +130,9 @@
             <div class="d-flex justify-content-center">
                 <img src="{{ asset('images/logos/Digital-Bangladesh.png') }}" alt="" style="height: 45px">
                 <img class="ms-4" src="{{ asset('images/logos/ICT.png') }}" alt="" style="height: 45px">
-                <img class="ms-4" src="{{ asset('images/logos/Robi.png') }}" alt=""
-                    style="height: 45px;">
+                <img class="ms-4" src="{{ asset('images/logos/a2i-logo.png') }}" alt="" style="height: 40px">
+                <img class="ms-4" src="{{ asset('images/logos/UNICEF_login_icon.svg') }}" alt=""
+                    style="height: 40px">
             </div>
             <div class="d-md-flex justify-content-center small mt-3">
                 <div class="text-muted">&copy;

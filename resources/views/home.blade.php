@@ -92,21 +92,23 @@
 
                 {{-- view posts --}}
                 @foreach ($posts as $item)
-                    @php
-                        $like = DB::table('post_likes')
-                            ->where('post_id', $item->id)
-                            ->get();
-                        $liker_user = DB::table('post_likes')
-                            ->where('post_id', $item->id)
-                            ->where('user_id', Auth::user()->id)
-                            ->first();
-                        $comments = DB::table('post_comments')
-                            ->leftjoin('users', 'post_comments.user_id', '=', 'users.id')
-                            ->select('post_comments.*', 'users.name', 'users.user_image')
-                            ->where('post_id', $item->id)
-                            ->orderBy('id', 'desc')
-                            ->get();
-                    @endphp
+                    <div class="queries">
+                        @php
+                            $like = DB::table('post_likes')
+                                ->where('post_id', $item->id)
+                                ->get();
+                            $liker_user = DB::table('post_likes')
+                                ->where('post_id', $item->id)
+                                ->where('user_id', Auth::user()->id)
+                                ->first();
+                            $comments = DB::table('post_comments')
+                                ->leftjoin('users', 'post_comments.user_id', '=', 'users.id')
+                                ->select('post_comments.*', 'users.name', 'users.user_image')
+                                ->where('post_id', $item->id)
+                                ->orderBy('id', 'desc')
+                                ->get();
+                        @endphp
+                    </div>
 
                     <div class="my-4 card" id="{{ 'post' . $item->id }}">
                         <div class="mt-1 card-header d-flex">
@@ -268,7 +270,7 @@
                         @endif
 
                         {{-- like, comment, share section --}}
-                        <div class="p-1 card-footer d-flex justify-content-around">
+                        <div class="p-1 card-footer d-flex justify-content-around" id="lcs">
                             {{-- Like --}}
                             <div class="w-100">
                                 @if ($liker_user != null)

@@ -17,7 +17,7 @@
             @csrf
 
             <!-- College -->
-            <div>
+            {{-- <div>
                 <x-label for="college" :value="__('College')" />
 
                 <select name="college" class="block mt-1 w-full rounded" id="" autofocus>
@@ -31,7 +31,7 @@
                     </option>
                     <option value="Al-Emdad Degree College">Al-Emdad Degree College</option>
                 </select>
-            </div>
+            </div> --}}
 
             <!-- Email Address -->
             <div class="mt-4">

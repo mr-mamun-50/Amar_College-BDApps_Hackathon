@@ -56,6 +56,7 @@ class LikesController extends Controller
         DB::table('notifications')->insert($notification);
 
         DB::table('post_likes')->insert($data);
+
         return redirect(url()->previous() . '#post' . $request->post_id);
 
         // return response()->json([
